@@ -2,12 +2,10 @@
 
 angular.module('uiApp')
   .controller('StoryCtrl', function ($scope) {
-    $scope.stories = [];
+    $scope.addStory = function() {
+	$scope.stories.push( {name: $scope.name} );
+	$scope.name = '';
+    };
 
-    
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    $scope.stories = [];
+});
