@@ -1,0 +1,56 @@
+<html>
+<head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
+<script>
+(function() { 
+
+  Parse.initialize("mN6qyzDhOY5DEA7MjtGyFxYYxy0mxf3NAxBjPKxH", "8LCuIvl2V3NgYO24LF6juSb5cMasyK4aQaUUjwol");
+
+  var createObject = function() {
+    var TestObject = Parse.Object.extend("AnotherTestObject");
+    return new TestObject();
+  };
+
+  var saveObject = function(testObject, callback) {
+    testObject.save({boo: "ya"}, {
+      success: function(object) {
+        console.log("Saved to parse.com: %o", object);
+        callback(object);
+      }
+    });
+  };
+
+  var getObject = function(objectId) {
+    var query = new Parse.Query("AnotherTestObject");
+    console.log("Fetching %s from parse.com", objectId);
+    query.get(objectId, {
+      success: function(object) {
+        console.log("Fetched %s from parse.com: %o", objectId, object.attributes);
+        
+      },
+      error: function(object, error) {
+        console.log("UH OH Fetching %s from parse.com: %o, ERROR: %s", objectId, object, error.message);
+      }
+    });
+  };
+
+
+  $(document).ready(function() {
+    var myObj = createObject();
+    saveObject(myObj, function(savedObject) {
+      getObject(savedObject.id);
+    });
+  });
+
+})();
+</script>
+
+</head>
+
+<body>
+  <h1>Hello Parse</h1>
+</body>
+
+</html>
