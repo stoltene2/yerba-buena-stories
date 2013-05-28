@@ -1,1 +1,19 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+.title {
+  display: inline;
+  float: left;
+}
+.login {
+  padding-top: 20px;
+}
+.login input, .login button {
+  float: left;
+  display: inline;
+  margin: 4px;
+}
+.login {
+  float: right;
+}
+.hero-unit {
+  clear: both;
+}
