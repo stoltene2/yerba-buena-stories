@@ -23,5 +23,11 @@ describe('Controller: UserCtrl', function () {
   it('should return true if id/pw are both admin', function () {
     expect(scope.authenticate('admin', 'admin')).toEqual(true);
   });
+
+  it('should set the password to blank if failure', function () {
+    scope.authenticate('wrong', 'bad');
+    expect(scope.password).toEqual('');
+  });
+
 });
 
