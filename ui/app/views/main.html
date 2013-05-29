@@ -9,11 +9,13 @@
   <h1>Add a story</h1>
   <form ng-submit="addStory()">
     <input ng-model="name" type="text" placeholder="Once upon a time..." />
+    <input ng-model="points" type="number" placeholder="0" />
     <input class="btn btn-primary" type="submit" value="add" />
   </form>
+  <p>Total Points: <span ng-bind="totalPoints()"></span></p>
   <ul>
     <li ng-repeat="story in stories">
-      {{story.name}}
+      {{story.name}} {{story.points}}
     </li>
   </ul>
 </div>
