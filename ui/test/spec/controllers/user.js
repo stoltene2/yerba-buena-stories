@@ -16,16 +16,18 @@ describe('Controller: UserCtrl', function () {
     });
   }));
 
-  it('should return false if id/pw dont match', function () {
-    expect(scope.authenticate('wrong', 'bad')).toEqual(false);
+  it('should set loggedIn to false', function () {
+    scope.login('wrong', 'bad');
+    expect(scope.loggedIn).toEqual(false);
   });
 
-  it('should return true if id/pw are both admin', function () {
-    expect(scope.authenticate('admin', 'admin')).toEqual(true);
+  it('should set loggedIn to true', function () {
+    scope.login('admin', 'admin');
+    expect(scope.loggedIn).toEqual(true);
   });
 
   it('should set the password to blank if failure', function () {
-    scope.authenticate('wrong', 'bad');
+    scope.login('wrong', 'bad');
     expect(scope.password).toEqual('');
   });
 

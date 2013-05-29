@@ -1,28 +1,21 @@
 'use strict';
 
 angular.module('uiApp')
-  .controller('UserCtrl', function ($scope) {
+  .controller('UserCtrl', function ($scope, User) {
 
-    //TODO do something with currentUser... like use it to determine
-    //whether or not to show the login form
+    $scope.loggedIn = false;
 
-    $scope.authenticate = function(username, password) {
-      $scope.currentUser = $scope.findUser(username);
+    $scope.login = function(username, password) {
+      $scope.user = User.find(username);
       
-      if (password == $scope.currentUser.password) {
-        $('#fail').hide();
-        $('.login').replaceWith("<h4 class='welcome'>Welcome " + username + "</h4>");
-        return true;
+      if (password == $scope.user.password) {
+        $scope.loginFailed = false;
+        $scope.loggedIn = true;
       } else {
-        $('#fail').show();
+        $scope.loginFailed = true;
+        $scope.loggedIn = false;
         $scope.password = '';
-        return false;
       }
     };
 
-    //TODO: Move this to a model
-    $scope.findUser = function(username) {
-      return { username: username, 
-               password: 'admin'  };
-    };
 });
