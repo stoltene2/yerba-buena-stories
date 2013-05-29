@@ -22,10 +22,19 @@
     <input ng-model="points" type="number" placeholder="0" />
     <input class="btn btn-primary" type="submit" value="add" />
   </form>
-  <p>Total Points: <span ng-bind="totalPoints()"></span></p>
-  <ul>
-    <li ng-repeat="story in stories">
-      {{story.name}} {{story.points}}
-    </li>
-  </ul>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+	<th>Story</th>
+	<th>Points: <span ng-bind="totalPoints()"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="story in stories">
+	<td ng-bind="story.name"></td>
+	<td ng-bind="story.points"></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
