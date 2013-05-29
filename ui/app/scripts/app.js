@@ -5,7 +5,7 @@ angular.module('uiApp', [])
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'StoryCtrl'
       })
       .otherwise({
         redirectTo: '/'

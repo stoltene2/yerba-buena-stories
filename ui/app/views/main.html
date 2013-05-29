@@ -1,4 +1,3 @@
-
 <h1 class="title">Yerba Buena Stories</h1>
 
 <div ng-controller="UserCtrl" class="login">
@@ -17,13 +16,15 @@
   <p>After 3 failed attempts your children will be eaten</p>
 </div>
 
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
+<div ng-controller="StoryCtrl">
+  <h1>Add a story</h1>
+  <form ng-submit="addStory()">
+    <input ng-model="name" type="text" placeholder="Once upon a time..." />
+    <input class="btn btn-primary" type="submit" value="add" />
+  </form>
   <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
+    <li ng-repeat="story in stories">
+      {{story.name}}
+    </li>
   </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
 </div>
-
