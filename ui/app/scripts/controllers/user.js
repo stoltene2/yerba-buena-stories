@@ -2,13 +2,27 @@
 
 angular.module('uiApp')
   .controller('UserCtrl', function ($scope) {
+
+    //TODO do something with currentUser... like use it to determine
+    //whether or not to show the login form
+
     $scope.authenticate = function(username, password) {
-      if (username === 'admin' && password === 'admin') {
-        console.log("yep");
+      $scope.currentUser = $scope.findUser(username);
+      
+      if (password == $scope.currentUser.password) {
+        $('#fail').hide();
+        $('.login').replaceWith("<h4 class='welcome'>Welcome " + username + "</h4>");
         return true;
       } else {
-        console.log("nope");
+        $('#fail').show();
+        $scope.password = '';
         return false;
       }
+    };
+
+    //TODO: Move this to a model
+    $scope.findUser = function(username) {
+      return { username: username, 
+               password: 'admin'  };
     };
 });
