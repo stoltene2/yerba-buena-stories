@@ -1,20 +1,9 @@
 <h1 class="title">Yerba Buena Stories</h1>
 
-<div ng-controller="UserCtrl" class="login">
-  <input ng-model="username" type="text" class="input-small" placeholder="Username">
-  <input ng-model="password" type="password" class="input-small" placeholder="Password">
-  <button type="submit" class="btn btn-primary" ng-click="authenticate(username, password)">Sign in</button>
-
-</div>
-
+<div ng-include src="'views/_user_login.html'"></div>
 <div class="clear"></div>
 
-<!-- TODO: Move this out of here & make it generic -->
-<div id="fail" style="display:none" class="alert alert-block alert-error fade in">
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <h4 class="alert-heading">Login failed. Try again. But not too many times!</h4>
-  <p>After 3 failed attempts your children will be eaten</p>
-</div>
+<div ng-include src="'views/_user_login_error.html'"></div>
 
 <div ng-controller="StoryCtrl">
   <h1>Add a story</h1>
