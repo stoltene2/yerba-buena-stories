@@ -1,19 +1,17 @@
 <h1 class="title">Yerba Buena Stories</h1>
 
-<!-- FIXME: there is logic in my view! -->
-<div ng-controller="UserCtrl" class="login">
-  <div ng-show="loggedIn">
-    <h4 class='welcome'>Welcome {{user.username}}</h4>
+<div class="login">
+  <div ng-show="currentUser">
+    <h4 class='welcome'>Welcome {{currentUser.username}}</h4>
   </div>
 
-  <div ng-show="!loggedIn">
+  <div ng-show="!currentUser">
     <div ng-include src="'views/_user_login.html'"></div>
-    <div class="clear"></div>
-    <div ng-include src="'views/_user_login_error.html'"></div>
   </div>
 </div>
 
 <div class="clear"></div>
+<div ng-show="loginFailed" ng-include src="'views/_user_login_error.html'"></div>
 
 <div ng-controller="StoryCtrl">
   <h1>Add a story</h1>
@@ -26,14 +24,14 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-	<th>Story</th>
-	<th>Points: <span ng-bind="totalPoints()"></span></th>
+        <th>Story</th>
+        <th>Points: <span ng-bind="totalPoints()"></span></th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="story in stories">
-	<td ng-bind="story.name"></td>
-	<td ng-bind="story.points"></td>
+        <td ng-bind="story.name"></td>
+        <td ng-bind="story.points"></td>
       </tr>
     </tbody>
   </table>
