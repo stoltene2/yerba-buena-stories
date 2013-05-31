@@ -3,9 +3,10 @@
 'use strict';
 
 describe('Iteration', function(){
-  var zeroPointStory, hugeStory;
+  var zeroPointStory, hugeStory, smallStory;
   beforeEach(function(){
     zeroPointStory = new Story( {name: "Zero", points: 0} );
+    smallStory = new Story( {name: "Really small", points: 2} );
     hugeStory = new Story( {name: "Really Big Story", points: 14} );
   });
 
@@ -32,6 +33,13 @@ describe('Iteration', function(){
       expect(iteration.stories.length).toEqual(1);
       iteration.remove(hugeStory);
       expect(iteration.stories.length).toEqual(0);
+  });
+
+  it('should be able to tally the total points', function(){
+    var iteration = new Iteration();
+    iteration.add(smallStory);
+    iteration.add(hugeStory);
+    expect(iteration.totalPoints()).toEqual(smallStory.points + hugeStory.points);
   });
 
   xit('should have remaining points', function () {

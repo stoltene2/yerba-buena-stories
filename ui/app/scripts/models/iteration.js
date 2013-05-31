@@ -15,7 +15,14 @@ function Iteration() {
   };
 
   iterationPrototype.totalPoints = function () {
-    var totalPoints = 0;
+    var totalPoints = 0,
+        cnt = 0,
+	numberOfStories = this.stories.length;
+
+    for(cnt; cnt < numberOfStories; cnt++) {
+      totalPoints += this.stories[cnt].points;
+    };
+
     return totalPoints;
   };
 

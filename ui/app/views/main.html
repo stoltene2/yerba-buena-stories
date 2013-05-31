@@ -20,7 +20,7 @@
 <div class="clear"></div>
 <div ng-show="loginFailed" ng-include src="'views/_user_login_error.html'"></div>
 
-<div ng-controller="StoryCtrl">
+<div ng-controller="IterationCtrl">
   <h1>Stories</h1>
   <form ng-submit="addStory()">
     <input ng-model="name" required type="text" placeholder="Story name" />
@@ -32,11 +32,11 @@
     <thead>
       <tr>
         <th>Story</th>
-        <th>Points: <span ng-bind="totalPoints()"></span></th>
+        <th>Points: <span ng-bind="iteration.totalPoints()"></span></th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="story in stories">
+      <tr ng-repeat="story in iteration.stories">
         <td ng-bind="story.name"></td>
         <td ng-bind="story.points"></td>
       </tr>
