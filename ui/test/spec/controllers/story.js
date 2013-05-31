@@ -49,4 +49,9 @@ describe('Controller: StoryCtrl', function () {
     expect(scope.totalPoints()).toEqual(4);
   });
 
+  it("should set total points to 0 if there are no stories", function() {
+    scope.stories = [ ];
+    expect(scope.totalPoints()).toEqual(0);
+  });
+
 });

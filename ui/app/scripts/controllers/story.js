@@ -12,7 +12,7 @@ angular.module('uiApp')
       $scope.name = '';
     };
 
-    $scope.totalPoints = function() { 
+    $scope.totalPoints = function() {
       var total = 0;
       angular.forEach($scope.stories, function(story){
 	total += story.points;

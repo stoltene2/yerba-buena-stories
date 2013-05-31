@@ -16,8 +16,8 @@
 <div ng-controller="StoryCtrl">
   <h1>Add a story</h1>
   <form ng-submit="addStory()">
-    <input ng-model="name" type="text" placeholder="Once upon a time..." />
-    <input ng-model="points" type="number" placeholder="0" />
+    <input ng-model="name" required type="text" placeholder="Once upon a time..." />
+    <input ng-model="points" required type="number" placeholder="0" />
     <input class="btn btn-primary" type="submit" value="add" />
   </form>
 
