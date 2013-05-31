@@ -3,7 +3,7 @@
 angular.module('uiApp')
   .controller('StoryCtrl', function ($scope) {
     $scope.addStory = function() {
-      $scope.stories.push( {name: $scope.name , points: $scope.points } );
+      $scope.stories.push( new Story({name: $scope.name , points: $scope.points }) );
       $scope.reset();
     };
 

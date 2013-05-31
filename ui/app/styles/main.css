@@ -1,18 +1,23 @@
 /* Will be compiled down to a single stylesheet with your sass files */
-.title {
-  display: inline;
+.left { 
   float: left;
 }
-.login {
-  padding-top: 20px;
+.right {
+  float: right;
+}
+input {
+  margin-bottom: 0px !important; //override bootstrap
+}
+.header { 
+  padding-top: 30px;
+}
+.title {
+  display: inline;
 }
 .login input, .login button {
   float: left;
   display: inline;
   margin: 4px;
-}
-.login {
-  float: right;
 }
 .clear {
   clear: both;

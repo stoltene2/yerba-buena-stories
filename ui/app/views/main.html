@@ -1,12 +1,19 @@
-<h1 class="title">Yerba Buena Stories</h1>
-
-<div class="login">
-  <div ng-show="currentUser">
-    <h4 class='welcome'>Welcome {{currentUser.username}}</h4>
+<div class="header">
+  <div class="left">
+    <h1 class="title">
+      <img src="/images/angular-logo.jpg" width="50" height="50" /> 
+      Yerba Buena Stories
+    </h1>
   </div>
 
-  <div ng-show="!currentUser">
-    <div ng-include src="'views/_user_login.html'"></div>
+  <div class="right">
+    <div ng-show="currentUser">
+      <h4 class='welcome'>Welcome {{currentUser.username}}</h4>
+    </div>
+
+    <div ng-show="!currentUser">
+      <div ng-include src="'views/_user_login.html'"></div>
+    </div>
   </div>
 </div>
 
@@ -14,11 +21,11 @@
 <div ng-show="loginFailed" ng-include src="'views/_user_login_error.html'"></div>
 
 <div ng-controller="StoryCtrl">
-  <h1>Add a story</h1>
+  <h1>Stories</h1>
   <form ng-submit="addStory()">
-    <input ng-model="name" required type="text" placeholder="Once upon a time..." />
-    <input ng-model="points" required type="number" placeholder="0" />
-    <input class="btn btn-primary" type="submit" value="add" />
+    <input ng-model="name" required type="text" placeholder="Story name" />
+    <input ng-model="points" required type="number" placeholder="Points" />
+    <input class="btn btn-primary" type="submit" value="Add" />
   </form>
 
   <table class="table table-bordered">
