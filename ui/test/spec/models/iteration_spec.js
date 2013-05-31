@@ -5,13 +5,12 @@
 describe('Iteration', function(){
   var zeroPointStory, hugeStory;
   beforeEach(function(){
-    zeroPointStory = {name: "Zero", points: 0};
-    hugeStory = {name: "Really Big Story", points: 14};
+    zeroPointStory = new Story( {name: "Zero", points: 0} );
+    hugeStory = new Story( {name: "Really Big Story", points: 14} );
   });
 
   it('should have 0 total points by default', function () {
       var iteration = new Iteration();
-
       expect(iteration.totalPoints()).toEqual(0);
   });
 
