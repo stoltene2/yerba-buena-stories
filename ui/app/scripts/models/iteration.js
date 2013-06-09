@@ -1,5 +1,4 @@
-/*global Iteration */
-"use strict";
+'use strict';
 
 function Iteration() {
   this.stories = [];
@@ -21,7 +20,7 @@ function Iteration() {
 
     for(cnt; cnt < numberOfStories; cnt++) {
       totalPoints += this.stories[cnt].points;
-    };
+    }
 
     return totalPoints;
   };
@@ -35,6 +34,5 @@ function Iteration() {
     return remainingPoints;
   };
 
-  
 
 }(Iteration.prototype));
